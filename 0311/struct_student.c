@@ -18,7 +18,7 @@ void AddStudent(){
 	printf("이름 입력 :");	scanf("%s",arr[sIndex].name);
 	printf("전공 입력 :");	scanf("%s",arr[sIndex].major);
 	printf("평점 입력 :");	scanf("%lf",&arr[sIndex].score);
-	index++;//입력이 끝난 후 다음데이터 입력 받을 인덱스로 이동
+	sIndex++;//입력이 끝난 후 다음데이터 입력 받을 인덱스로 이동
 }
 //데이터 삭제
 void DeleteStudent(){
