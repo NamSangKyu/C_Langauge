@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 struct student{
 	char sno[10];
 	char name[30];
@@ -22,13 +23,30 @@ void AddStudent(){
 //데이터 삭제
 void DeleteStudent(){
 	//삭제할 학번 입력
+	char sno[30];
+	printf("삭제할 학번을 입력하세요 : ");
+	scanf("%s",sno);
 	//삭제할 데이터를 조회
-	//	해당 인덱스에서 다음인덱스 값을 복사받음
-	//인덱스 감소
+	int i;
+	for(i=0;i<index;i++){
+		if(strcmp(arr[i].sno,sno)==0){
+			//해당 인덱스에서 다음인덱스 값을 복사받음
+			int j;
+			for(j=i;j<index-1;j++)
+				arr[j] = arr[j+1];
+			//인덱스 감소 
+			index--;
+			printf("입력한 데이터를 정상적으로  삭제했습니다.\n");
+			return;
+		}
+	}
+	printf("삭제할 데이터가 없습니다\n");
 }	
 int main(void){
-	struct student s = {"20001144","홍길동","경영학과",3.14};
-	printf("%s,%s,%s,%lf\n",s.sno,s.name,s.major,s.score);
+	AddStudent();
+	AddStudent();
+	AddStudent();
+	DeleteStudent();
 	return 0;
 }
 
